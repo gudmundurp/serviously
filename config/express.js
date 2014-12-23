@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+'use strict';
 var express = require('express'),
     mongoStore = require('connect-mongo')(express),
     flash = require('connect-flash'),

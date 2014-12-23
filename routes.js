@@ -2,7 +2,7 @@
 //CORS function
 (function() {
     var formidable = require('formidable'),
-		util = require('util'),
+        util = require('util'),
         Item = require('./models/item').Item,
         pg = require('pg'),
         dbString = process.env.DATABASE_URL || 'postgres://dzmtedncrptvfw:BGQgJkOcweNuGuGS_f5YMQwO8K@ec2-23-23-210-37.compute-1.amazonaws.com:5432/dch01nvl9t24jp';
@@ -10,19 +10,23 @@
         console.log('Error : ' + message);
     };
 
-    exports.db = function(req,res){
-        pg.connect(dbString, function(err,client,done){
-            client.query('select * from testtable',function(err, result){
-                done();
-                if(err){
-                    console.error(err);
-                    res.send('Error: ' + err);
-                }
-                else{
-                    console.log(JSON.stringify(result.rows,2,2));
-                    res.send(JSON.stringify(result.rows,2,2));
-                }
-            });
+    exports.db = function(req, res) {
+        pg.connect(dbString, function(err, client, done) {
+            if (err) {
+                console.error(err);
+                console.log(dbString);
+            } else {
+                client.query('select * from testtable', function(err, result) {
+                    done();
+                    if (err) {
+                        console.error(err);
+                        res.send('Error: ' + err);
+                    } else {
+                        console.log(JSON.stringify(result.rows, 2, 2));
+                        res.send(JSON.stringify(result.rows, 2, 2));
+                    }
+                });
+            }
         });
     };
 
@@ -74,7 +78,7 @@
                     item.save(function(err) {
                         if (err) {
                             error(err);
-                        } else{
+                        } else {
                             res.end(util.inspect(item));
                         }
                         //res.writeHead(200, {'content-type': 'text/plain'});
