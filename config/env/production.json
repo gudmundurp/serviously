@@ -1,7 +1,7 @@
 {
-    "db": "mongodb://localhost/mean",
+    "db": "'postgres://dzmtedncrptvfw:BGQgJkOcweNuGuGS_f5YMQwO8K@ec2-23-23-210-37.compute-1.amazonaws.com:5432/dch01nvl9t24jp'",
     "app": {
-        "name": "MEAN - A Modern Stack - Production"
+        "name": "serviously"
     },
     "facebook": {
         "clientID": "APP_ID",

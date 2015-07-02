@@ -1,7 +1,7 @@
 {
-    "db": "mongodb://localhost/mean-dev",
+    "db": "postgres://Torfi:olivici@localhost:5432/testdb",
     "app": {
-        "name": "MEAN - A Modern Stack - Development"
+        "name": "serviously"
     },
     "facebook": {
         "clientID": "APP_ID",

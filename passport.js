@@ -1,13 +1,12 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    LocalStrategy = require('passport-local').Strategy,
+var LocalStrategy = require('passport-local').Strategy,
     TwitterStrategy = require('passport-twitter').Strategy,
     FacebookStrategy = require('passport-facebook').Strategy,
     GitHubStrategy = require('passport-github').Strategy,
     GoogleStrategy = require('passport-google-oauth').Strategy,
-    User = mongoose.model('User'),
-    config = require('./config');
+    config = require('./config'),
+    User = require('../model/user')(config.db);
 
 
 module.exports = function(passport) {
@@ -30,9 +29,7 @@ module.exports = function(passport) {
             passwordField: 'password'
         },
         function(email, password, done) {
-            User.findOne({
-                email: email
-            }, function(err, user) {
+            User.findByEmail(email, function(err, user) {
                 if (err) {
                     return done(err);
                 }
@@ -41,7 +38,7 @@ module.exports = function(passport) {
                         message: 'Unknown user'
                     });
                 }
-                if (!user.authenticate(password)) {
+                if (!user.hash===password) {
                     return done(null, false, {
                         message: 'Invalid password'
                     });

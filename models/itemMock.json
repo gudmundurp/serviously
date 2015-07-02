@@ -1,20 +1,5 @@
-/*[{
-	id:1,
-	date:Date.now(),
-	password:'test',
-	name:'Ólafur Torfi Yngvason',
-	thumbnail:'/images/Prófíll.jpg',
-	parent:100
-},
 {
-	id:2,
-	date:Date.now(),
-	password:'test',
-	name:'Carl Sagan',
-	thumbnail:'/images/carlsagan.jpeg',
-	parent:100
-}]*/
-var list = [{
+	[{
 	id:100,
 	date:Date.now(),
 	category:'User',
@@ -81,5 +66,5 @@ var list = [{
 	category:'Email',
 	parent:100,
 	author:100
-}];
-module.exports.items = list;
+}]
+}
