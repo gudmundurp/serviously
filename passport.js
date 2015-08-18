@@ -5,8 +5,8 @@ var LocalStrategy = require('passport-local').Strategy,
     FacebookStrategy = require('passport-facebook').Strategy,
     GitHubStrategy = require('passport-github').Strategy,
     GoogleStrategy = require('passport-google-oauth').Strategy,
-    config = require('./config'),
-    User = require('../model/user')(config.db);
+    config = require('./config/config'),
+    User = require('./models/user')(config.db);
 
 
 module.exports = function(passport) {

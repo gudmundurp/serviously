@@ -22,6 +22,8 @@
   "globals": {
     "angular": false,
     "require": false,
-    "console": false
+    "console": false,
+    "describe": false,
+    "it":false
   }
 }

@@ -1,5 +1,5 @@
 {
-    "db": "postgres://Torfi:olivici@localhost:5432/testdb",
+    "db": "postgres://Torfi:olivici@localhost:5432/testDB",
     "app": {
         "name": "serviously"
     },
